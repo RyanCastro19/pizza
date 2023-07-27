@@ -1,0 +1,235 @@
+@font-face {
+  font-family: "Joti One";
+  src: url(../fontes/JotiOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Montesserat";
+  src: url(../fontes/Montserrat-Regular.ttf);
+
+}
+
+@font-face {
+  font-family: "Montesserat border";
+  src: url(../fontes/Montserrat-ExtraBold.ttf);
+
+}
+
+.tab_content{
+  display: none;
+}
+
+
+* {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+header {
+  height: 100px;
+  width: 100%;
+  background-color: #FD4E4E;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  margin: 0rem auto;
+  width: 1330px;
+
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+
+}
+
+#logo a img {
+  width: 180px;
+
+}
+
+#sacola {
+  font-size: 30px;
+  color: white;
+}
+
+main {
+  margin-top: 90px;
+
+
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+ul li button {
+  text-decoration: none;
+  font-size: 20px;
+  background-color: #FD4E4E;
+  color: #fff;
+  padding: 10px;
+  width: 150px;
+  border: none;
+  font-family: "Joti One" !important;
+
+}
+
+.tab_link.active button{
+  background-color: #f51717;
+}
+
+
+ul li button:hover {
+  background-color: #f51717;
+}
+
+.caixa_estutura {
+  margin-top: 50px;
+}
+
+.area_pizza, .area_massas, .area_bebidas, .area_sobremesas{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+}
+
+.card_produto {
+
+  width: 300px;
+  height: 465px;
+  border: solid 1px #f51717;
+  border-radius: 12px;
+  font-family: "Montesserat" !important;
+  font-weight: 700;
+
+
+
+}
+
+
+.img_card {
+  display: flex;
+  justify-content: center;
+ object-fit: cover;
+}
+
+.img_card img {
+  width: 300px;
+  height: 300px;
+  padding: 0px;
+ 
+
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+
+}
+
+.texto_card {
+  margin: 10px;
+
+}
+
+.qtd {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+
+}
+
+.input_qtd {
+
+  width: 50px;
+  height: 40px;
+  flex: 1;
+  text-align: center;
+
+
+}
+
+.tamanho_pizza {
+  margin-top: 18px;
+  margin-bottom: 10px;
+  
+}
+
+.btn-div {
+  display: flex;
+  justify-content: center;
+}
+
+
+.btn-add {
+  background-color: #e73737;
+  color: #ffffff;
+  border-radius: 10px;
+  height: 30px;
+  width: 100px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: #f51717;
+}
+
+.btn_qtd {
+  display: flex;
+  align-items: center;
+  border: 1px solid gray;
+  width: 120px;
+  border-radius: 5px;
+  padding: 5px;
+
+
+
+}
+
+.btn_qtd button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+
+}
+
+/* .card_fileria {
+
+  display: flex;
+  justify-content: space-between;
+  margin-top: 55px;
+} */
+
+.nome_pizza {
+  margin-top: 15px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: center;
+
+
+}
+
+footer{
+  margin-top: 220px;
+  height: 30px;
+  background-color: #f51717;
+}
