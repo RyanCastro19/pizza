@@ -1,14 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     let tab_link = document.querySelectorAll(".tab_link");
     let tab_content = document.querySelectorAll(".tab_content");
+    var carrinho = [];
     tab_link.forEach(link => {
 
         link.addEventListener("click", function (event) {
             event.preventDefault();
             tab_content.forEach(content => {
                 content.style.display = 'none';
-
-
             });
             //link não tem nada haver como de cima :)
             tab_link.forEach(link => {
@@ -27,75 +26,39 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             id: 1,
             nome: "Queijo com calebresa",
-            preco: {
-                "p": 35,
-                "m": 40,
-                "g": 45,
-                "gg": 50,
-                "f": 60,
-            },
+            preco: 30,
             img: "assets/img/p1.png",
         },
         {
             id: 2,
             nome: "Queijo com calebresa",
-            preco: {
-                "p": 35,
-                "m": 40,
-                "g": 45,
-                "gg": 50,
-                "f": 60,
-            },
+            preco: 22.99,
             img: "assets/img/p2.png",
 
         },
         {
             id: 3,
             nome: "Queijo com calebresa",
-            preco: {
-                "p": 35,
-                "m": 40,
-                "g": 45,
-                "gg": 50,
-                "f": 60,
-            },
+            preco: 22.99,
             img: "assets/img/p3.png",
 
         },
         {
             id: 4,
             nome: "Queijo com calebresa",
-            preco: {
-                "p": 35,
-                "m": 40,
-                "g": 45,
-                "gg": 50,
-                "f": 60,
-            },
+            preco: 22.99,
             img: "assets/img/p4.png",
         },
         {
             id: 5,
             nome: "Queijo com calebresa",
-            preco: {
-                "p": 35,
-                "m": 40,
-                "g": 45,
-                "gg": 50,
-                "f": 60,
-            },
+            preco: 22.99,
             img: "assets/img/p5.png",
         },
         {
             id: 6,
             nome: "Queijo com calebresa",
-            preco: {
-                "p": 35,
-                "m": 40,
-                "g": 45,
-                "gg": 50,
-                "f": 60,
-            },
+            preco: 22.99,
             img: "assets/img/p6.png",
         },
 
@@ -103,26 +66,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             id: 7,
             nome: "Queijo com calebresa",
-            preco: {
-                "p": 35,
-                "m": 40,
-                "g": 45,
-                "gg": 50,
-                "f": 60,
-            },
+            preco: 22.99,
             img: "assets/img/p7.png",
         },
 
         {
             id: 8,
             nome: "Queijo com calebresa",
-            preco: {
-                "p": 35,
-                "m": 40,
-                "g": 45,
-                "gg": 50,
-                "f": 60,
-            },
+            preco: 22.99,
             img: "assets/img/p8.png",
         },
 
@@ -229,33 +180,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     </span>
                 </div>
                 <div class="texto_card">
-                    <div class="qtd">
-                        
-                        <div class="btn_qtd">
-
-                            <button class="btn_menos">
-                                -
-                            </button>
-                            <input class="input_qtd" type="text" value="1">
-                            <button class="btn_mais">+</button>
-                        </div>
-                        <div class="div_preco">
-                            <span class="preco">
-                                ${pizzas[i].preco.p}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="tamanho_pizza">
-                        <ul>
-                            <li><input type="radio" name="tamanho" value="p"> <label>P</label></li>
-                            <li><input type="radio"  name="tamanho" value="m" > <label>M</label></li>
-                            <li><input type="radio"  name="tamanho" value="g"> <label>G</label></li>
-                            <li><input type="radio"  name="tamanho" value="gg"> <label>GG</label></li>
-                            <li><input type="radio"  name="tamanho" value="f"> <label>F</label></li>
-                        </ul>
-                    </div>
+                   
                     <div class="btn-div">
-                        <button class="btn-add">Adicinar</button>
+                        <button class="btn-add" data-id="${pizzas[i].id}">Adicionar</button>
                     </div>
 
                 </div>
@@ -263,16 +190,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </div>
         `;
-        const radioButtons = document.querySelectorAll(`[name="tamanho"]`);
-        let precoAtual = pizzas[i].preco.p;
-        radioButtons.forEach(radio => {
-            radio.addEventListener("change", function () {
-                const tamanhoSelecionado = this.value; // Obtém o valor do radio selecionado
-                precoAtual = pizzas[i].preco[tamanhoSelecionado]; // Atualiza o preço conforme o tamanho selecionado
-                const precoSpan = this.closest(".div_preco").querySelector(".preco-span");
-                precoSpan.textContent = precoAtual;
-            });
-        });
         area_pizza.innerHTML += conteudo;
     }
 
@@ -292,33 +209,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     </span>
                 </div>
                 <div class="texto_card">
-                    <div class="qtd">
-                        
-                        <div class="btn_qtd">
-
-                            <button class="btn_menos"  data-id-menos="${massas[i].id}">
-                                -
-                            </button>
-                            <input class="input_qtd" type="text" value="1" data-id-input="${massas[i].id}">
-                            <button class="btn_mais"  data-id-mais="${massas[i].id}">+</button>
-                        </div>
-                        <div class="div_preco">
-                            <span class="preco">
-                                ${parseFloat(massas[i].preco)}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="tamanho_pizza">
-                        <ul>
-                            <li><input type="radio" id="p" name="tamanho" value="p"> <label for="p">P</label></li>
-                            <li><input type="radio"  name="tamanho" value="m" > <label>M</label></li>
-                            <li><input type="radio"  name="tamanho" value="g"> <label>G</label></li>
-                            <li><input type="radio"  name="tamanho" value="gg"> <label>GG</label></li>
-                            <li><input type="radio"  name="tamanho" value="f"> <label>F</label></li>
-                        </ul>
-                    </div>
+                    
                     <div class="btn-div">
-                        <button class="btn-add">Adicinar</button>
+                        <button class="btn-add" data-id="${massas[i].id}">Adicionar</button>
                     </div>
 
                 </div>
@@ -327,7 +220,6 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
         `;
         area_massas.innerHTML += conteudo;
-
 
     }
 
@@ -349,33 +241,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     </span>
                 </div>
                 <div class="texto_card">
-                    <div class="qtd">
-                        
-                        <div class="btn_qtd">
-
-                            <button class="btn_menos">
-                                -
-                            </button>
-                            <input class="input_qtd" type="text" value="1">
-                            <button class="btn_mais">+</button>
-                        </div>
-                        <div>
-                            <span class="preco">
-                                ${bebidas[i].preco}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="tamanho_pizza">
-                        <ul>
-                            <li><input type="radio" name="tamanho" value="p"> <label>P</label></li>
-                            <li><input type="radio"  name="tamanho" value="m" > <label>M</label></li>
-                            <li><input type="radio"  name="tamanho" value="g"> <label>G</label></li>
-                            <li><input type="radio"  name="tamanho" value="gg"> <label>GG</label></li>
-                            <li><input type="radio"  name="tamanho" value="f"> <label>F</label></li>
-                        </ul>
-                    </div>
+                    
+                    
                     <div class="btn-div">
-                        <button class="btn-add">Adicinar</button>
+                        <button class="btn-add" data-id="${bebidas[i].id}">Adicionar</button>
                     </div>
 
                 </div>
@@ -404,33 +273,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     </span>
                 </div>
                 <div class="texto_card">
-                    <div class="qtd">
-                        
-                        <div class="btn_qtd">
-
-                            <button class="btn_menos">
-                                -
-                            </button>
-                            <input class="input_qtd" type="text" value="1">
-                            <button class="btn_mais">+</button>
-                        </div>
-                        <div>
-                            <span class="preco">
-                                ${sobremesas[i].preco}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="tamanho_pizza">
-                        <ul>
-                            <li><input type="radio" name="tamanho" value="p"> <label>P</label></li>
-                            <li><input type="radio"  name="tamanho" value="m" > <label>M</label></li>
-                            <li><input type="radio"  name="tamanho" value="g"> <label>G</label></li>
-                            <li><input type="radio"  name="tamanho" value="gg"> <label>GG</label></li>
-                            <li><input type="radio"  name="tamanho" value="f"> <label>F</label></li>
-                        </ul>
-                    </div>
+                    
                     <div class="btn-div">
-                        <button class="btn-add">Adicinar</button>
+                        <button class="btn-add" data-id="${sobremesas[i].id}">Adicionar</button>
                     </div>
 
                 </div>
@@ -439,143 +284,178 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
         `;
         area_sobremesas.innerHTML += conteudo;
-
     }
-    let btn_mais = document.querySelectorAll(".btn_mais");
-    let btn_menos = document.querySelectorAll(".btn_menos");
-    let quantidade = document.querySelectorAll(".input_qtd");
-    const preco_elements = document.querySelectorAll(".preco");
 
-    function atualizaPreco(index) {
-        const input = quantidade[index];
-        const preco_element = preco_elements[index].textContent;
+
+    let modal = document.querySelector(".modal");
+    modal.style.display = "none";
+    let btn_add = document.querySelectorAll(".btn-add");
+
+    btn_add.forEach(btn => {
+        btn.addEventListener("click", function () {
+            modal.style.display = "flex";
+            let id = this.getAttribute("data-id");
+            //selecionar o produto pelo id no array
+            let pizza = pizzas.find(item => item.id == id);
+            console.log(pizza);
+            let conteudo = "";
+
+            conteudo += `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>${pizza.nome}</h2>
+                        <button class="close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="imagem">
+                            <img src="${pizza.img}">
+                        </div>
+                        <div class="conteudo-modal">
+                            <div>
+                                <h3>Ingredientes</h3>
+                                <p>Calabresa, mussarela, cebola, azeitona, orégano e molho de tomate.</p>
+                            </div>
+                            <div class="div_tamanho">
+                                <div class="titulo">
+                                    Tamanho
+                                </div>
+                                <div>
+                                    <label class="custom-radio-btn">
+                                        <input type="radio" name="tamanho" value="p">
+                                        <div class="button-tamanho">Pequena</div>
+                                    </label>
+                                    <label class="custom-radio-btn">
+                                        <input type="radio" name="tamanho" value="m">
+                                        <div class="button-tamanho">Média</div>
+                                    </label>
+                                    <label class="custom-radio-btn">
+                                        <input type="radio" name="tamanho" value="g">
+                                        <div class="button-tamanho">Grande</div>
+                                    </label>
+
+
+                                </div>
+                            </div>
+                            <div class="div_preco">
+                                <div class="titulo">
+                                    Preço
+                                </div>
+                                <div class="div_quantidade">
+                                    <div class="preco">
+                                        R$ <span class="span_preco">0,00</span>
+                                    </div>
+                                    <div class="buttons">
+                                        <button class="btn_qtd btn_menos">-</button><input class="input_qtd"
+                                            type="text" min="1"><button class="btn_qtd btn_mais">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn_add_cart">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+
+            modal.innerHTML = conteudo;
+
+            let btn_add_cart = document.querySelector(".btn_add_cart");
+
+            let fechar_modal = document.querySelector(".close");
+            fechar_modal.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+
+            let btn_menos = document.querySelector(".btn_menos");
+            let btn_mais = document.querySelector(".btn_mais");
+            let input_qtd = document.querySelector(".input_qtd");
+            let span_preco = document.querySelector(".span_preco");
+            let preco = pizza.preco;
+            span_preco.innerHTML = preco.toFixed(2);
+            let qtd = 1;
+            input_qtd.value = qtd;
+
+            btn_menos.addEventListener("click", function () {
+                if (qtd > 1) {
+                    qtd--;
+                    input_qtd.value = qtd;
+                    span_preco.innerHTML = (preco * qtd).toFixed(2);
+                }
+            });
+
+            btn_mais.addEventListener("click", function () {
+                qtd++;
+                input_qtd.value = qtd;
+                span_preco.innerHTML = (preco * qtd).toFixed(2);
+            });
+
+            input_qtd.addEventListener("change", function () {
+                qtd = input_qtd.value;
+                span_preco.innerHTML = (preco * qtd).toFixed(2);
+            });
+
+            btn_add_cart.addEventListener("click", function () {
+                let tamanho = document.querySelector("input[name='tamanho']:checked");
+                if (tamanho) {
+                    let tamanho_selecionado = tamanho.value;
+                    let item = {
+                        id: pizza.id,
+                        nome: pizza.nome,
+                        preco: pizza.preco,
+                        img: pizza.img,
+                        tamanho: tamanho_selecionado,
+                        qtd: qtd,
+                    };
+                    carrinho.push(item);
+                    modal.style.display = "none";
+                    console.log(carrinho);
+                    atualizarCarrinho(carrinho);
+                } else {
+                    alert("Selecione um tamanho");
+                }
+            });
+
+
+        });
+    });
+
+    const botaoCarrinho = document.querySelector('.icon_carrinho');
+    const divCarrinho = document.querySelector('.carrinho');
+    const closeCarrinho = document.querySelector('.close_carrinho');
+
+    botaoCarrinho.addEventListener('click', () => {
+        divCarrinho.classList.toggle('carrinho_aberto');
+    });
+
+    closeCarrinho.addEventListener('click', () => {
+        //remove a classe carrinho_aberto
+        divCarrinho.classList.remove('carrinho_aberto');
+    });
+
+    function atualizarCarrinho() {
+        let tabela = document.querySelector(".tabela");
+        let conteudo = "";
+        let total = 0;
         
-
-        const preco_unitario = parseFloat(preco_element);
-        let currentValue = parseInt(input.value);
-
-    
-        // Verificar se o valor é válido (maior ou igual a 1)
-        if (currentValue < 1 || isNaN(currentValue)) {
-          currentValue = 1;
-          input.value = currentValue;
-        }
-    
-        const novo_valor = (preco_unitario * currentValue).toFixed(2);
-        console.log(preco_element)
-        preco_element.textContent = novo_valor;
-      }
-
-    quantidade.forEach((input, index) => {
-        input.addEventListener('change', function () {
-            // Pegar o valor atual do input
-            let currentValue = parseInt(input.value);
-
-            // Verificar se o valor é válido (maior ou igual a 1)
-            if (currentValue < 1 || isNaN(currentValue)) {
-                currentValue = 1;
-                input.value = currentValue;
-            }
-
-            // Atualizar o valor do produto
-            atualizaPreco(index, currentValue);
+        tabela.innerHTML += conteudo;
+        
+        document.querySelector(".total").innerHTML = total.toFixed(2);
+        let btn_remover = document.querySelectorAll(".btn_remover");
+        btn_remover.forEach(btn => {
+            btn.addEventListener("click", function () {
+                let indice = this.getAttribute("data-indice");
+                carrinho.splice(indice, 1);
+                atualizarCarrinho();
+            });
         });
-    });
+    }
 
-    btn_mais.forEach((btn, index) => {
-        btn.addEventListener('click', function () {
-            // Pegar o input associado ao botão clicado
-            const input = quantidade[index];
-
-            // Incrementar o valor do input em um
-            let currentValue = parseInt(input.value);
-            input.value = currentValue + 1;
-
-            // Atualizar o valor do produto
-            atualizaPreco(index, currentValue + 1);
-        });
-    });
-
-    btn_menos.forEach((btn, index) => {
-        btn.addEventListener('click', function () {
-            // Pegar o input associado ao botão clicado
-            const input = quantidade[index];
-
-            // Decrementar o valor do input em um, garantindo que o valor não fique negativo
-            let currentValue = parseInt(input.value);
-            currentValue = currentValue > 1 ? currentValue - 1 : 1;
-            input.value = currentValue;
-
-            // Atualizar o valor do produto
-            atualizaPreco(index, currentValue);
-        });
-    });
-
-
-
-
-
-    // quantidade.forEach((input, index) => {
-    //     input.addEventListener('change', function() {
-    //       // Pegar o valor atual do input
-    //       const currentValue = parseInt(input.value);
-
-    //       // Atualizar o valor do produto
-    //       atualizaPreco(index, currentValue);
-    //     });
-    //   });
-
-
-    // btn_mais.forEach((btn, index) => {
-    //     btn.addEventListener('click', function() {
-    //       // Pegar o input associado ao botão clicado
-    //       const input =  quantidade[index];
-
-    //       console.log(input.value)
-
-    //       // Incrementar o valor do input em um
-    //       const currentValue = parseInt(input.value);
-    //       input.value = currentValue + 1;
-
-    //       // Atualizar o valor do produto
-    //       atualizaPreco(index, currentValue + 1);
-    //     });
-    //   });
-
-    //   // Adicionar um evento de clique a cada botão "btn_nos"
-    //   btn_menos.forEach((btn, index) => {
-    //     btn.addEventListener('click', function() {
-    //       // Pegar o input associado ao botão clicado
-    //       const input =  quantidade[index];
-    //       // Decrementar o valor do input em um, garantindo que o valor não fique negativo
-    //       const currentValue = parseInt(input.value);
-    //       input.value = currentValue > 1 ? currentValue - 1 : 1;
-
-    //       // Atualizar o valor do produto
-    //       atualizaPreco(index, currentValue-1);
-    //     });
-    //   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // function atualizaPreco(index, quantidade){
-    //     const preco_element = preco_elements[index]
-    //     const preco_unitario = parseFloat(preco_element.innerText);
-    //     const novo_valor = (preco_unitario * quantidade).toFixed(2);
-    //     preco_element.innerText = novo_valor;
-    // }
 
 });
+
+
+    
+    
+
+
+
