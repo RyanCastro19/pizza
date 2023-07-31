@@ -15,6 +15,10 @@
 
 }
 
+body{
+  font-family: "Montesserat" !important;
+}
+
 .tab_content{
   display: none;
 }
@@ -97,25 +101,25 @@ ul li button:hover {
 
 .caixa_estutura {
   margin-top: 50px;
+  
 }
 
 .area_pizza, .area_massas, .area_bebidas, .area_sobremesas{
 display: flex;
 flex-wrap: wrap;
-justify-content: space-evenly;
+
+
 }
 
 .card_produto {
 
-  width: 300px;
-  height: 465px;
+  width: 200px;
+  height: 265px;
   border: solid 1px #f51717;
   border-radius: 12px;
   font-family: "Montesserat" !important;
   font-weight: 700;
-
-
-
+  margin-right: 20px;
 }
 
 
@@ -126,11 +130,9 @@ justify-content: space-evenly;
 }
 
 .img_card img {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   padding: 0px;
- 
-
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 
@@ -139,32 +141,6 @@ justify-content: space-evenly;
 .texto_card {
   margin: 10px;
 
-}
-
-.qtd {
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-
-
-}
-
-.input_qtd {
-
-  width: 50px;
-  height: 40px;
-  flex: 1;
-  text-align: center;
-
-
-}
-
-.tamanho_pizza {
-  margin-top: 18px;
-  margin-bottom: 10px;
-  
 }
 
 .btn-div {
@@ -183,50 +159,222 @@ justify-content: space-evenly;
   cursor: pointer;
 }
 
-.btn-add:hover {
-  background-color: #f51717;
-}
-
-.btn_qtd {
-  display: flex;
-  align-items: center;
-  border: 1px solid gray;
-  width: 120px;
-  border-radius: 5px;
-  padding: 5px;
-
-
-
-}
-
-.btn_qtd button {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f2f2f2;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-
-}
-
-/* .card_fileria {
-
-  display: flex;
-  justify-content: space-between;
-  margin-top: 55px;
-} */
-
 .nome_pizza {
   margin-top: 15px;
   margin-bottom: 14px;
   display: flex;
   justify-content: center;
 
+}
+
+.modal{
+  font-family: "Montesserat";
+  z-index: 4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content{
+  width: 650px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+}
+.close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+.close:hover{
+  color: #f51717;
+}
+
+.modal-body{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
+.imagem img{
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.conteudo-modal{
+  padding: 10px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.custom-radio-btn {
+  display: inline-block;
+  margin-right: 5px;
+  background-color: #f2f2f2;
+  /* padding: 8px 16px; */
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-radio-btn input[type="radio"] {
+  display: none;
+}
+.custom-radio-btn input[type="radio"]:checked + .button-tamanho {
+  background-color: #f51717;
+  color: #fff;
+}
+
+.custom-radio-btn .button-tamanho {
+  display: inline-block;
+  color: #000;
+  /* Ajuste o estilo do botão inteiro quando o radio estiver selecionado */
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.custom-radio-btn:hover .button-tamanho {
+  background-color: #e73737;
+  color: #fff;
+}
+
+.div_tamanho{
+  margin-top: 20px;
+}
+
+.titulo{
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.div_preco{
+  margin-top: 20px;
+}
+
+.div_quantidade{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn_qtd{
+ width: 40px;
+ height: 40px;
+ font-size: 26px;
+}
+
+.btn_menos{
+  background-color: #e73737;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.btn_mais{
+  background-color: #0aaf20;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.buttons{
+  display:flex;
+}
+
+.input_qtd{
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  font-size: 20px;
+}
+.preco{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.btn_add_cart{
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: #e73737;
+  color: #ffffff;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.btn_add_cart:hover{
+  background-color: #f51717;
+}
+.carrinho{
+  position: fixed;
+  top: 0;
+  right: -450px;
+  height: 100vh;
+  width: 20%;
+  background-color: yellow;
+  transition: right 0.5s ease;
 
 }
+.badge{
+  top: 0;
+  right: 0;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.carrinho_aberto{
+  right: 0px;
+  margin: 0;
+  
+}
+
+.carrinho_fechado{
+  right: -450px;
+}
+
+.close_carrinho{
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.icon_carrinho{
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
 
 footer{
   margin-top: 220px;
